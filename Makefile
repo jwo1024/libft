@@ -41,7 +41,8 @@ SRCS_2	= ft_substr.c\
 		  ft_itoa.c\
 		  ft_strmapi.c\
 		  ft_striteri.c\
-		  ft_putnbr_fd.c
+		  ft_putnbr_fd.c\
+		  ft_split.c
 
 SRCS_m	= ft_itoa.c\
 		  ft_strmapi.c\
