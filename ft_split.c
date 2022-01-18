@@ -1,69 +1,77 @@
 #include	"libft.h"
 
-static size_t	cnt_c(char const *s, char c);
-static void		c_to_zero(char	*str, char c);
-static char		*split_word(char *str);
+static char	**mk_arr(char const *s, char c);
+static char	**split_words(char **arr, char const *s, char c);
+static void	clear_words(char **arr, size_t cnt);
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	l;
-	char	*tmp;
 	char	**arr;
 
 	if (!s)
 		return (NULL);
-	arr = (char **)malloc(sizeof(char *) * (cnt + 1));
-	l = ft_strlen(s);
-	tmp = ft_substr(s, 0, l);
-	c_to_zero(s, c);
-	
-	split_words();
-
-	free(tmp);
+	arr = mk_arr(s, c);
+	if (!arr)
+		return (NULL);
+	arr = split_words(arr, s, c);
 	return (arr);
 }
 
-static char		*split_words(char **arr, char *str, size_t l)
+static char	**split_words(char **arr, char const *s, char c)
 {
 	size_t	i;
-	size_t	len;
+	size_t	cnt;
+	size_t	k;
 
-	len = 0;
 	i = 0;
-	while (i < l)
+	cnt = 0;
+	while (s[i])
 	{
-		if (str[i])
+		if (s[i] != c && (i == 0 || s[i - 1] == c))
 		{
-			len = ft_strlen(&str[i])
-			while (str[i])
+			k = i;
+			while (s[k] && s[k] != c)
+				k++;
+			arr[cnt] = ft_substr(s, i, k - i);
+			if (!arr[cnt])
 			{
-				
-				i++;
+				clear_words(arr, cnt);
+				return (NULL);
 			}
+			cnt++;
 		}
 		i++;
 	}
+	return (arr);
 }
 
-static size_t	cnt_c(char const *s, char c)
+static char	**mk_arr(char const *s, char c)
 {
-	size_t cnt;
+	size_t	i;
+	size_t	cnt;
+	char	**arr;
 
-	while (*s)
+	i = 0;
+	cnt = 0;
+	while (s[i])
 	{
-		if (*s == c)
+		if (s[i] != c && (i == 0 || s[i - 1] == c))
 			cnt++;
-		s++;
+		i++;
 	}
-	return (cnt);
+	arr = (char **)malloc(sizeof(char *) * (cnt + 1));
+	return (arr);
 }
 
-static void		c_to_zero(char	*str, char c)
+static void	clear_words(char **arr, size_t cnt)
 {
-	if (*str)
+	size_t	i;
+
+	i = 0;
+	while (i < cnt)
 	{
-		if (*str == c)
-			*str = c;
-		str++;
+		free(arr[i]);
+		i++;
 	}
+	free(arr);
 }
