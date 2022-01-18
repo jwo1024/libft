@@ -8,7 +8,7 @@ char	**ft_split(char const *s, char c)
 {
 	char	**arr;
 
-	if (!s)
+	if (!s || !*s)
 		return (NULL);
 	arr = mk_arr(s, c);
 	if (!arr)
@@ -60,8 +60,6 @@ static char	**mk_arr(char const *s, char c)
 			cnt++;
 		i++;
 	}
-	if (cnt == 0)
-		return(NULL);
 	arr = (char **)malloc(sizeof(char *) * (cnt + 1));
 	return (arr);
 }
