@@ -42,6 +42,7 @@ static char	**split_words(char **arr, char const *s, char c)
 		}
 		i++;
 	}
+	arr[cnt] = NULL;
 	return (arr);
 }
 
