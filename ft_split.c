@@ -8,7 +8,7 @@ char	**ft_split(char const *s, char c)
 {
 	char	**arr;
 
-	if (!s || !*s)
+	if (!s)
 		return (NULL);
 	arr = mk_arr(s, c);
 	if (!arr)
