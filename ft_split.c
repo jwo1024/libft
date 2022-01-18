@@ -59,8 +59,9 @@ static char	**mk_arr(char const *s, char c)
 			cnt++;
 		i++;
 	}
-	if (cnt != 0)
-		arr = (char **)malloc(sizeof(char *) * (cnt + 1));
+	if (cnt == 0)
+		return(NULL);
+	arr = (char **)malloc(sizeof(char *) * (cnt + 1));
 	return (arr);
 }
 
