@@ -3,21 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jiwolee <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: jiwolee <jiwolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 19:57:54 by marvin            #+#    #+#             */
-/*   Updated: 2022/01/17 15:34:00 by jiwolee          ###   ########.fr       */
+/*   Updated: 2022/01/18 23:56:15 by jiwolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
+static int	rtn_ll(unsigned long long result, int i);
+
 int	ft_atoi(char *str)
 {
 	int			idx;
 	int			i;
-	long long	result;
-	long long	mul;
+	unsigned long long	result;
+	unsigned long long	mul;
 
 	result = 0;
 	i = 1;
@@ -38,13 +40,19 @@ int	ft_atoi(char *str)
 		result += (str[idx] - '0') * mul;
 		mul *= 10;
 	}
-	if (result > 9223372036854775807)
-	{	
-		if (i < 0)
-			return (-1);
-		else if (i > 0)
-			return (1);
-	}
-	return ((int)result * i);
+	return (rtn_ll(result, i));
 }
 
+
+static int	rtn_ll(unsigned long long result, int i)
+{
+	unsigned long long	llmax = 9223372036854775807;
+	unsigned long long 	llmin = 9223372036854775808ULL;
+
+	if (result > llmax && i > 0)
+		return (-1);
+	else if (result > llmin && i < 0)
+		return (0);
+	else 
+		return ((int)result * i);
+}
