@@ -6,10 +6,10 @@
 /*   By: jiwolee <jiwolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 14:16:43 by jiwolee           #+#    #+#             */
-/*   Updated: 2021/09/20 17:46:51 by jiwolee          ###   ########.fr       */
+/*   Updated: 2022/01/19 21:59:17 by jiwolee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
-#include	"libft.h"
+
 
 size_t	ft_strlcat(char *dst, char *src, size_t dstsize)
 {
