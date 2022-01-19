@@ -6,7 +6,7 @@
 /*   By: jiwolee <jiwolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 21:59:43 by jiwolee           #+#    #+#             */
-/*   Updated: 2022/01/19 21:59:43 by jiwolee          ###   ########seoul.kr  */
+/*   Updated: 2022/01/20 03:00:34 by jiwolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strrchr(const char *s, int c)
 	int		l;
 	char	a;
 
-	a = c;
+	a = (char)c;
 	l = ft_strlen(s);
 	while (l >= 0)
 	{

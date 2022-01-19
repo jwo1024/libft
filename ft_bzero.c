@@ -6,19 +6,19 @@
 /*   By: jiwolee <jiwolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 21:57:17 by jiwolee           #+#    #+#             */
-/*   Updated: 2022/01/19 21:58:25 by jiwolee          ###   ########seoul.kr  */
+/*   Updated: 2022/01/20 01:10:15 by jiwolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
-void	ft_bzero(void *b, size_t len)
+void	ft_bzero(void *s, size_t n)
 {
 	unsigned char	*str;
 	size_t			i;
 
-	str = b;
+	str = s;
 	i = 0;
-	while (i < len)
+	while (i < n)
 		str[i++] = 0;
 }
