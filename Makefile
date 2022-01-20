@@ -6,7 +6,7 @@
 #    By: jiwolee <jiwolee@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/19 21:52:27 by jiwolee           #+#    #+#              #
-#    Updated: 2022/01/19 21:59:54 by jiwolee          ###   ########seoul.kr   #
+#    Updated: 2022/01/21 04:25:51 by jiwolee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAG	= -Wall -Wextra -Werror
 AR		= ar
 ARFLAGS	= crs
 
-INCLUDES	= ./libft.h 
+HEADER	= libft.h 
 
 SRCS_1	= ft_isalpha.c\
 		  ft_isdigit.c\
@@ -66,7 +66,7 @@ SRCS_BN = ft_lstnew.c\
 		  ft_lstiter.c\
 		  ft_lstmap.c
 
-SRCS	= $(SRCS_1) $(SRCS_2) $(SRCS_BN)
+SRCS	= $(SRCS_1) $(SRCS_2)
 
 OBJS	= $(SRCS:.c=.o)
 
@@ -74,7 +74,7 @@ OBJS_BONUS = $(SRCS_BN:.c=.o)
 
 all : $(NAME)
 
-%.o : %.c
+%.o : %.c $(HEADER)
 	$(CC) $(CFLAG) -c $< -o $@
 
 clean :
