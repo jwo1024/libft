@@ -6,7 +6,7 @@
 #    By: jiwolee <jiwolee@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/19 21:52:27 by jiwolee           #+#    #+#              #
-#    Updated: 2022/01/21 12:55:25 by jiwolee          ###   ########.fr        #
+#    Updated: 2022/01/21 23:06:20 by jiwolee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,6 +89,6 @@ $(NAME) : $(OBJS)
 	$(AR) $(ARFLAGS) $@ $^
 
 bonus :
-	make SRCS+="$(SRCS_1) $(SRCS_2) $(SRCS_BN)" all
+	@make SRCS+="$(SRCS_1) $(SRCS_2) $(SRCS_BN)" all
 
 .PHONY : all clean fclean re

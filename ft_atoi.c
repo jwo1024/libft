@@ -6,7 +6,7 @@
 /*   By: jiwolee <jiwolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 19:57:54 by marvin            #+#    #+#             */
-/*   Updated: 2022/01/21 19:36:07 by jiwolee          ###   ########.fr       */
+/*   Updated: 2022/01/21 22:30:07 by jiwolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,13 @@ static int	rtn_ll(const char *str, unsigned long long result, int i)
 		if (mul == 1000000000000000000)
 		{
 			if ((result > 9223372036854775808ULL && i == -1)
-					|| (0 < idx && i == -1))
-					return (0);
+				|| (0 < idx && i == -1))
+				return (0);
 			else if ((result > 9223372036854775807 && i == 1)
-					|| (0 < idx && i == 1))
-					return (-1);
+				|| (0 < idx && i == 1))
+				return (-1);
 			else
-				break;
+				break ;
 		}
 		mul *= 10;
 	}
