@@ -6,7 +6,7 @@
 /*   By: jiwolee <jiwolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 21:58:43 by jiwolee           #+#    #+#             */
-/*   Updated: 2022/01/19 21:58:43 by jiwolee          ###   ########seoul.kr  */
+/*   Updated: 2022/01/22 01:37:40 by jiwolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,8 @@ void	ft_lstclear(t_list **lst, void	(*del) (void*))
 		while (*lst)
 		{
 			temp = *lst;
-			*lst = temp -> next;
-			del(temp -> content);
-			free(temp);
+			*lst = temp->next;
+			ft_lstdelone(temp, del);
 		}
 	}
 }

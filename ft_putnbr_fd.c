@@ -6,13 +6,13 @@
 /*   By: jiwolee <jiwolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 21:59:06 by jiwolee           #+#    #+#             */
-/*   Updated: 2022/01/19 21:59:06 by jiwolee          ###   ########seoul.kr  */
+/*   Updated: 2022/01/22 01:57:19 by jiwolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
-void	ft_write_num(int nb, int fd);
+static void	write_num(int nb, int fd);
 
 void	ft_putnbr_fd(int n, int fd)
 {
@@ -32,11 +32,11 @@ void	ft_putnbr_fd(int n, int fd)
 			write(fd, "-", 1);
 			n = n * -1;
 		}
-		ft_write_num(n, fd);
+		write_num(n, fd);
 	}
 }
 
-void	ft_write_num(int nb, int fd)
+static void	write_num(int nb, int fd)
 {
 	int	a;
 	int	num;

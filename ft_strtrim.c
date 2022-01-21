@@ -6,7 +6,7 @@
 /*   By: jiwolee <jiwolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 21:59:46 by jiwolee           #+#    #+#             */
-/*   Updated: 2022/01/19 21:59:46 by jiwolee          ###   ########seoul.kr  */
+/*   Updated: 2022/01/21 23:25:02 by jiwolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	bac;
 	char	*str;
 
-	str = 0;
+	str = NULL;
 	if (s1)
 	{
 		fro = 0;
@@ -30,7 +30,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 		if (fro >= bac)
 		{
 			str = (char *)malloc(sizeof(char) * 1);
-			*str = '\0';
+			if (str)
+				*str = '\0';
 			return (str);
 		}
 		while (isset(set, s1[bac]))
