@@ -6,7 +6,7 @@
 /*   By: jiwolee <jiwolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 14:14:57 by jiwolee           #+#    #+#             */
-/*   Updated: 2022/01/21 14:10:28 by jiwolee          ###   ########.fr       */
+/*   Updated: 2022/01/21 16:56:59 by jiwolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,24 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	i;
 	char	*str;
+	size_t	s_len;
 
-	i = 0;
 	if (!s)
 		return (NULL);
+	s_len = ft_strlen(s);
+	if (len == 0 || (unsigned int)s_len <= start)
+	{
+		str = (char *)malloc(sizeof(char));
+		if (str)
+			*str = '\0';
+		return (str);
+	}
+	if (s_len < len)
+		len = s_len;
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
-	if (ft_strlen(s) > start)
-		ft_strlcpy(str, &s[start], len + 1);
-	else
-		*str = '\0';
+	ft_strlcpy(str, &s[start], len + 1);
 	return (str);
 }
