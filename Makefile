@@ -91,4 +91,4 @@ $(NAME) : $(OBJS)
 bonus :
 	@make SRCS+="$(SRCS_1) $(SRCS_2) $(SRCS_BN)" all
 
-.PHONY : all clean fclean re
+.PHONY : all clean fclean re bonus
